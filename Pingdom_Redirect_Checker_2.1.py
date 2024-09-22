@@ -146,7 +146,7 @@ def main(api_key, target_urls):
     filtered_checks = [check for check in checks if check.get('hostname') in target_urls]
     
     # Step 2: Divide the checks into equal batches for each thread
-    max_workers = 24  # Fixed number of threads
+    max_workers = 16  # Fixed number of threads
     batch_size = len(filtered_checks) // max_workers + 1
     batches = [filtered_checks[i:i + batch_size] for i in range(0, len(filtered_checks), batch_size)]
 
